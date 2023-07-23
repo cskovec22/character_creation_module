@@ -4,6 +4,7 @@ from graphic_arts.start_game_banner import run_screensaver
 
 
 def attack(char_name: str, char_class: str) -> str:
+    """Use an attack."""
     attack_value: int = 0
     if char_class == 'warrior':
         attack_value = 5 + randint(3, 5)
@@ -21,6 +22,7 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Use a defence."""
     defence_value: int = 0
     if char_class == 'warrior':
         defence_value = 10 + randint(5, 10)
@@ -38,6 +40,7 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Use a special skill."""
     special_value: int = 0
     if char_class == 'warrior':
         special_value = 80 + 25
@@ -58,6 +61,7 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Practice managing your skills: attack, defence or special."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
 
@@ -90,6 +94,7 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    """Select character class: warrior, mage or healer."""
     approve_choice: str = ''
     char_class: str = ''
     while approve_choice != 'y':
