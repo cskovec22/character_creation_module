@@ -15,7 +15,7 @@ class Character:
     def __init__(self, name):
         self.name = name
 
-    def attack(self, ):
+    def attack(self):
         value_attack = DEFAULT_ATTACK + randint(*self.RANGE_VALUE_ATTACK)
         return (f'{self.name} нанёс противнику урон, равный {value_attack}')
 
@@ -56,6 +56,25 @@ class Healer(Character):
     RANGE_VALUE_DEFENCE = (2, 5)
     SPECIAL_BUFF = DEFAULT_DEFENCE + 30
     SPECIAL_SKILL = 'Защита'
+
+
+def start_training(character) -> str:
+    """
+    Возвращает сообщения о результатах цикла тренировки персонажа.
+    """
+    cmd = None
+    commands = {
+        'attack': character.attack,
+        'defence': character.defence,
+        'special': character.special,
+        }
+
+    while cmd != 'skip':
+        cmd = input('Введи команду: ')
+        if cmd in commands:
+            print(commands[cmd]())
+
+    return 'Тренировка окончена.'
 
 
 def choice_char_class(char_name: str) -> Character:
